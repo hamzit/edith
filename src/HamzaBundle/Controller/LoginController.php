@@ -126,6 +126,8 @@ public function RegisterAction(Request $request,$lname,$fname){
   return new Response($content);
 }
 
+
+return new Response($content);
 }
 
 public function logoutAction(Request $request){
