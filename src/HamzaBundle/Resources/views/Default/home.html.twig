@@ -170,7 +170,9 @@ $.ajax({
     url: "{{ path('templateset') }}",
     data:{'template' : number},
     dataType : "json",
-    error: function(jqXHR, textStatus, errorThrown) { console.log(textStatus+' '+jqXHR+' '+errorThrown); },
+    error: function(jqXHR, textStatus, errorThrown) {
+      // console.log(textStatus+' '+jqXHR+' '+errorThrown);
+     },
     success: function(response) {     template = response;
                                       $('.loadTemplate').html(template);
                                       if(number==2){
@@ -221,9 +223,11 @@ $("textarea").prop("disabled", true);
                   url: "{{ path('update') }}",
                   data:data,
                   dataType : "json",
-                  error: function(jqXHR, textStatus, errorThrown) { console.log(textStatus+' '+jqXHR+' '+errorThrown); },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                    // console.log(textStatus+' '+jqXHR+' '+errorThrown);
+                  },
                   success: function(response) {
-                    console.log(JSON.stringify(response));
+                    // console.log(JSON.stringify(response));
                     $(".name h1").html(response['fname']+' '+response['lname']); //template1
                     $(".name h2").html(response['fname']+' '+response['lname']); // template2
                     $(".status h5").html(response['status']); //template1
