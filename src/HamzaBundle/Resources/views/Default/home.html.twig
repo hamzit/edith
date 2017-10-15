@@ -1,0 +1,260 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+<script src="{{ asset('./js/jquery-3.2.1.js') }}"></script>
+<script src="{{ asset('./js/script.js') }}"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<link rel="stylesheet" type="text/css" href="fonts.googleapis.com/css?family=Open+Sans" />
+<link rel="stylesheet" href=" {{ asset('./css/stylehome.css') }} "/>
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="loadTemplate">
+
+
+
+{% if users is defined %}
+<div class="left-input">
+  <form class="well">
+        <label>First Name : </label>
+        <div class="form-group"><input id="fname" placeholder="Hamza" type="text" value=""></div>
+
+        <label>Last Name : </label>
+        <div class="form-group"><input id="lname" placeholder="Hadouch" type="text" value=""></div>
+
+        <label>Status : </label>
+        <div class="form-group"><input id="status" placeholder="Web Designer" type="text" value=""></div>
+
+        <label>Adress : </label>
+        <div class="form-group"><input id="adress" placeholder="14 avenue ..." type="text" value=""></div>
+
+        <label>Telephone : </label>
+        <div class="form-group"><input id="tel" placeholder="+33 6 75 16 94 23" type="text" value=""></div>
+
+        <label>Email : </label>
+        <div class="form-group"><input id="email" placeholder="hamza@email.com" type="text" value=""></div>
+
+        <label>To : </label>
+        <div class="form-group"><input id="to" placeholder="To whome who may concern " type="text" value=""></div>
+
+        <label>Destinataire :</label>
+        <div class="form-group">   <input id="dear" placeholder="Dear" type="text" value=""></div>
+
+        <div class="form-group"><label>Parapgraph 1</label></div>
+        <div class="form-group"><textarea class="input-xlarge" id="message1" name="message"rows="2" ></textarea></div>
+
+        <div class="form-group"><label>Paragraph 2</label></div>
+        <div class="form-group"><textarea class="input-xlarge" id="message2" name="message"rows="2" ></textarea></div>
+
+        <div class="form-group"><label>Paragraph 2</label></div>
+        <div class="form-group"><textarea class="input-xlarge" id="message3" name="message"rows="2" ></textarea></div>
+
+        <label>Greetings :</label>
+        <div class="form-group"> <input id="cordialement" placeholder="Cordialement" type="text" value=""></div>
+
+        <label>Signature :</label>
+        <div class="form-group">   <input id="signature" placeholder="Hamza H." type="text" value=""></div>
+
+
+
+        <div class="form-group">       <a href="{{ path('logout') }}" class="btn btn-info btn-lg">
+              <span class="glyphicon glyphicon-log-out"></span> Log out
+            </a></div>
+{% endif %}
+
+</form>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="preview">
+<img id="myImg0" src="{{ asset('./img/temp1.jpg') }}" alt="Template 1" width="100" height="100">
+<a href="#"> <span onclick="show(0); return false">Preview</span> </a>
+<a href="#"> <span onclick="choose(1); return false">Choose</span> </a>
+
+<img id="myImg1" src="{{asset('./img/temp2.png') }}" alt="Template 2" width="100" height="100">
+<a href="#"> <span onclick="show(1); return false">Preview</span> </a>
+<a href="#"> <span onclick="choose(2); return false">Choose</span> </a>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div id="myModal0" class="modal">
+<!-- The Close Button -->
+<span class="close" onclick="document.getElementById('myModal0').style.display='none'">&times;</span>
+<!-- Modal Content (The Image) -->
+<img class="modal-content" id="img0">
+<!-- Modal Caption (Image Text) -->
+<div id="caption0"></div>
+</div>
+
+
+<div id="myModal1" class="modal">
+<!-- The Close Button -->
+<span class="close" onclick="document.getElementById('myModal1').style.display='none'">&times;</span>
+<!-- Modal Content (The Image) -->
+<img class="modal-content" id="img1">
+<!-- Modal Caption (Image Text) -->
+<div id="caption1"></div>
+</div>
+
+
+
+
+<script>
+
+function show(number) {
+// Get the modal
+var modal = document.getElementById('myModal'+number);
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg'+number);
+var modalImg = document.getElementById("img"+number);
+var captionText = document.getElementById("caption"+number);
+
+   modal.style.display = "block";
+   modalImg.src = document.getElementById('myImg'+number).src;
+   captionText.innerHTML = document.getElementById('myImg'+number).alt;
+// alert(captionText.innerHTML);
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[number];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+ modal.style.display = "none";
+}
+
+}
+
+</script>
+
+
+<script>
+
+function choose(number) {
+  $("input").prop("disabled", false);
+  $("textarea").prop("disabled", false);
+  $('.template1').hide();
+  $('.template2').hide();
+$('.template'+number).show();
+
+// var template = {'template'}
+
+$.ajax({
+    type: "POST",
+    url: "{{ path('templateset') }}",
+    data:{'template' : number},
+    dataType : "json",
+    error: function(jqXHR, textStatus, errorThrown) { console.log(textStatus+' '+jqXHR+' '+errorThrown); },
+    success: function(response) {     template = response;
+                                      $('.loadTemplate').html(template);
+                                      if(number==2){
+                                        // alert('test');
+                                        $(".letterone h1").html($('#fname').val().charAt(0).toUpperCase()); //both
+                                        $(".lettertwo h1").html($('#lname').val().charAt(0).toUpperCase()); //both
+                                      }
+    // console.log(JSON.stringify(response));
+  }
+});
+
+
+
+}
+
+
+
+$(document).ready(function(){
+$("input").prop("disabled", true);
+$("textarea").prop("disabled", true);
+
+
+    // $('.loadTemplate').on('input',function postinput(){ //***** too much requests
+   $('.loadTemplate').change(function postinput(){
+
+              var data = {'fname': $('#fname').val(),
+                          'lname': $('#lname').val(),
+                          'status':$('#status').val() ,
+                          'adress': $('#adress').val(),
+                          'tel': $('#tel').val(),
+                          'email': $('#email').val(),
+                          'to': $('#to').val(),
+                          'dear': $('#dear').val(),
+                          // 'message1': 'message1',
+                          // 'message2': 'message2',
+                          // 'message3': 'message1',
+                          'message1': $('#message1').val(),
+                          'message2': $('#message2').val(),
+                          'message3': $('#message3').val(),
+                          'cordialement': $('#cordialement').val(),
+                          'signature': $('#signature').val()
+                        };
+
+
+                  // console.log(JSON.stringify(data));
+              $.ajax({
+                  type: "POST",
+                  url: "{{ path('update') }}",
+                  data:data,
+                  dataType : "json",
+                  error: function(jqXHR, textStatus, errorThrown) { console.log(textStatus+' '+jqXHR+' '+errorThrown); },
+                  success: function(response) {
+                    console.log(JSON.stringify(response));
+                    $(".name h1").html(response['fname']+' '+response['lname']); //template1
+                    $(".name h2").html(response['fname']+' '+response['lname']); // template2
+                    $(".status h5").html(response['status']); //template1
+                    $(".status h3").html(response['status']); //template2
+                    $(".towhom h3").html(response['to']); //both
+                    $(".dear h4").html(response['dear']); //both
+                    $(".paragraph1 h5").html(response['message1']); //both
+                    $(".paragraph2 h5").html(response['message2']); //both
+                    $(".paragraph2 h5").html(response['message3']); //both
+                    $(".signature .first h4").html(response['cordialement']); //both
+                    $(".signature .second h4").html(response['signature']); //both
+                    $(".adress h5").html(response['adress']); //both
+                    $(".email h3").html(response['email']); //both
+                    $(".tel h3").html(response['tel']); //both
+                    $(".letterone h1").html(response['fname'].charAt(0).toUpperCase()); //both
+                    $(".lettertwo h1").html(response['lname'].charAt(0).toUpperCase()); //both
+
+                  }
+              });
+
+
+
+
+  });
+});
+
+</script>
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+{% endblock %}

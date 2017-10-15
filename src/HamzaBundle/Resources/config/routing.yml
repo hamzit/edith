@@ -1,0 +1,20 @@
+hamza_homepage:
+    path:     /
+    defaults: { _controller: HamzaBundle:Default:number }
+
+welcome:
+    path:     /welcome
+    defaults: { _controller: HamzaBundle:Welcome:welcome }
+
+update:
+    path:     /update
+    defaults: { _controller: HamzaBundle:Welcome:update }
+
+templateset:
+    path:     /templateset
+    defaults: { _controller: HamzaBundle:Welcome:setTemplate }
+
+
+logout:
+    path:     /logout
+    defaults: { _controller: HamzaBundle:Login:logout }

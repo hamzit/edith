@@ -1,0 +1,414 @@
+body {
+	display: flex;
+}
+
+body .left-input .well{
+	height: 1124px;
+	margin-bottom: 0;
+	/*background-color: red;*/
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+body .loadTemplate {
+display: flex;
+}
+
+
+textarea {
+    resize: none;
+}
+
+/********************************* TEMPLATE 2 ***************************************/
+.template2 {
+	font-family: Open Sans;
+	font-weight: 500;
+	line-height: 15px;
+}
+
+body .template2 {
+		margin-left: 25px;
+    background-image: url("template2.png");
+    height:297mm;
+    width:210mm;    /* to centre page on screen*/
+    /*margin-left: auto;
+    margin-right: auto;*/
+    background-size: cover;
+    /*background-color: red;*/
+}
+
+
+
+
+body .template2 {
+	display: flex;
+}
+
+body .template2 .left-con {
+	/*background-color: blue;*/
+	width: 279px;
+	height: 1122px;
+	/*background-color: red;*/
+}
+
+
+body .template2 .left-con  h4, body .template2 .left-con  h5 {
+display: inline-block;
+}
+
+body .template2 .left-con  .letterone {
+	color: white;
+	margin-top: 135px;
+	margin-left: 105px;
+	height: 40px;
+	width: 30px;
+	/*background-color: red;*/
+}
+
+body .template2 .left-con  .lettertwo {
+	color: white;
+	margin-left: 145px;
+margin-top: -20px;
+	/*background-color: red;*/
+	width: 30px;
+		height: 45px;
+}
+
+body .template2 .left-con  .name , body .template2 .left-con .status ,
+body .template2 .left-con  .adress ,
+body .template2 .left-con  .email ,
+body .template2 .left-con  .tel {
+text-align: center;
+}
+
+
+body .template2 .left-con  .adress {
+margin-top: 125px;
+width: 279px;
+height: 30px;
+overflow: hidden;
+/*background: red;*/
+}
+
+body .template2 .left-con  .tel  {
+margin-top: 72px;
+width: 279px;
+height: 30px;
+overflow: hidden;
+/*background: red;*/
+
+}
+
+body .template2 .left-con  .email {
+	margin-top: 75px;
+	width: 279px;
+	height: 30px;
+	overflow: hidden;
+	/*background: red;*/
+}
+
+
+body .template2 .left-con  .name  {
+padding-top: 10px;
+height: 70px;
+/*background-color: red;*/
+color: #CFB044;
+overflow:hidden;
+}
+
+body .template2 .left-con  .status  {
+height: 25px;
+/*background-color: red;*/
+color: #CFB044;
+overflow:hidden;
+}
+
+
+
+body .template2 .left-con  .status ,
+body .template2 .left-con  .adress ,
+body .template2 .left-con  .email ,
+body .template2 .left-con  .tel  {
+color: white;
+
+}
+
+
+
+body .template2 .right-con {
+	/*background-color: red;*/
+overflow:hidden;
+
+}
+
+body .template2 .right-con .towhom {
+	/*background-color: red;*/
+margin-top: 50px;
+width: 515px;
+height: 70px;
+text-align: center;
+overflow: hidden;
+}
+
+body .template2 .right-con .dear {
+	/*background-color: red;*/
+margin-bottom: 40px;
+height: 50px;
+overflow: hidden;
+}
+
+body .template2 .right-con .content {
+	/*background-color: red;*/
+padding-left: 40px;
+padding-right: 20px;
+padding-top: 100px;
+}
+
+
+
+body .template2 .right-con .content .paragraph {
+	/*background-color: red;*/
+padding-bottom: 10px;
+
+}
+
+
+.template2 .signature  {
+height: 100px;
+width: 200px;
+/*background-color: red;*/
+overflow: hidden;
+float: right;
+}
+
+
+
+
+/********************************* TEMPLATE 2 FIN ***************************************/
+
+
+
+body .preview  {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+body .preview img  {
+margin-top: 30px;
+}
+
+body .preview a  {
+color: #91b0e0;
+}
+
+
+body .preview img , body .preview a {
+	display: block;
+}
+
+
+
+
+/***************** MODAL ******************/
+
+/* The Modal (background) */
+.modal {
+	 display: none; /* Hidden by default */
+	 position: fixed; /* Stay in place */
+	 z-index: 1; /* Sit on top */
+	 padding-top: 10px; /* Location of the box */
+	 width: 100%; /* Full width */
+	 height: 100%; /* Full height */
+	 overflow: auto; /* Enable scroll if needed */
+	 background-color: rgb(0,0,0); /* Fallback color */
+	 background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+	 margin: auto;
+	 display: block;
+	 width: 80%;
+	 max-width: 700px;
+}
+
+
+@-webkit-keyframes zoom {
+	 from {-webkit-transform:scale(0)}
+	 to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+	 from {transform:scale(0)}
+	 to {transform:scale(1)}
+}
+
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+	 .modal-content {
+			 width: 100%;
+	 }
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+	 border-radius: 5px;
+	 cursor: pointer;
+	 transition: 0.3s;
+	 padding-left: 20px;
+	 padding-top: 10px;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption0 , #caption1  {
+	 margin: auto;
+	 display: block;
+	 width: 80%;
+	 max-width: 700px;
+	 text-align: center;
+	 color: #ccc;
+	 padding: 10px 0;
+	 height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+	 -webkit-animation-name: zoom;
+	 -webkit-animation-duration: 0.6s;
+	 animation-name: zoom;
+	 animation-duration: 0.6s;
+}
+
+
+/* The Close Button */
+.close {
+	 position: absolute;
+	 top: 15px;
+	 right: 35px;
+	 color: #f1f1f1;
+	 font-size: 40px;
+	 font-weight: bold;
+	 transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	 color: #bbb;
+	 text-decoration: none;
+	 cursor: pointer;
+}
+
+
+/***************** MODAL FIN ******************/
+
+
+
+
+/************* TEMPLATE 1 **************************/
+
+
+.template1 {
+	font-family: Open Sans;
+	font-weight: 500;
+	line-height: 15px;
+}
+
+
+body .template1 {
+		margin-left: 25px;
+    background-image: url("template1s.png");
+    height:297mm;
+    width:210mm;    /* to centre page on screen*/
+    /*margin-left: auto;
+    margin-right: auto;*/
+    background-size: cover;
+    /*background-color: red;*/
+}
+
+.template1 .top {
+	/*background-color: red;*/
+	height: 244px;
+	overflow: hidden;
+}
+
+.template1 .name h1 {
+  padding-top:  50px;
+text-align: center;
+ color: white;
+}
+
+.template1 .status h3 {
+text-align: center;
+ color: #8D7665;
+}
+
+.template1 .content {
+  padding-top:  50px;
+  padding-left:  50px;
+}
+
+.template1 {
+position: relative;
+overflow:hidden;
+}
+
+.template1 .towhom  {
+	margin-top: 25px;
+	text-align: center;
+	height: 50px;
+	overflow: hidden;
+	/*background-color: red;*/
+}
+
+
+ .template1 .content .dear {
+	height: 50px;
+	overflow: hidden;
+	/*background-color: red;*/
+}
+
+
+
+
+
+.template1 .content .paragraph , .template1 .content .signature {
+  padding-top: 10px;
+  margin-right: 50px;
+}
+
+.template1 .content .signature {
+ padding-top: 10px;
+ margin-right: 50px;
+ float: right;
+}
+
+.template1 .signature  {
+height: 100px;
+width: 200px;
+/*background-color: red;*/
+overflow: hidden;
+}
+
+
+.template1 .footer  {
+  text-align: center;
+  /*background-color: red;*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+/*height: 30px;*/
+/*overflow: hidden;*/
+}
+
+
+.template1 .footer h4, .template1 .footer h5 , .template1 .footer .tel ,  .template1 .footer .adress , .template1 .footer .email {
+    display:inline-block;
+}
