@@ -1,69 +1,36 @@
-Symfony Standard Edition
+Cover Letter Editor
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+ * A cover letter online editor with 2 ready to use templates.
+ * Other templates will be added later.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+Features & Technologies used?
 --------------
 
-The Symfony Standard Edition is configured with the following defaults:
+  * Cover letters informations are saved online for later modifications
 
-  * An AppBundle you can use to start coding;
+  * A4 paper format
 
-  * Twig as the only configured template engine;
+  * Preview Letters
 
-  * Doctrine ORM/DBAL;
+  * PHP PDO
 
-  * Swiftmailer;
+  * The Symfony Standard Edition 2.8
 
-  * Annotations enabled for everything.
+  * Twig Templates
 
-It comes pre-configured with the following bundles:
+  * Doctrine ORM/DBAL for managing database interactions
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+  * Simple Authentification process using first/last name combination
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+  * Bootstrap/HTML/JQuery
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+To preview this project in action :
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
+  * [**Hamzadev**][1] - You can simply register using first/last name combination provided that it doesn't already exist on the database
 
 All libraries and bundles included in the Symfony Standard Edition are
 released under the MIT or BSD license.
 
-Enjoy!
 
-[1]:  https://symfony.com/doc/2.8/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.8/doctrine.html
-[8]:  https://symfony.com/doc/2.8/templating.html
-[9]:  https://symfony.com/doc/2.8/security.html
-[10]: https://symfony.com/doc/2.8/email.html
-[11]: https://symfony.com/doc/2.8/logging.html
-[12]: https://symfony.com/doc/2.8/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+[1]:  https://api.hamzadev.com
