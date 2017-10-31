@@ -210,6 +210,69 @@ public function updateAction(Request $request){
 }
 
 
+//Generate pdf
+
+
+  // display main
+  public function pdfAction(Request $request){
+
+    $session = $request->getSession();
+
+    if ( $session->has('id')){ // si l'utilisateur est authenticated
+      $session = $request->getSession();
+
+      //************* Recuperation des templates
+      $id = $request->getSession()->get('id');
+
+      $alltemplates = $this->getDoctrine()->getRepository("HamzaBundle:Templates")->
+      findBy(array("identification" => $id));
+
+      //  $myresponse = "Template SET : " . $request->request->get('template');
+
+      //  RETURN CHOSEN TEMPLATE
+      $templatenum = $request->request->get('template');
+      if ($templatenum == 1){
+
+        $template =  $this->render('@HamzaBundle/Default/template1.html.twig',
+        array('users' => $alltemplates));
+
+        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+
+
+
+      } else {
+
+        $template =  $this->render('@HamzaBundle/Default/template1.html.twig',
+        array('users' => $alltemplates));
+
+        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+
+      }
+
+
+      return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($template), 200,
+                          ['Content-Type'=> 'application/pdf',
+                           'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),]
+      );
+
+    } else {
+      $form1 = $this->get('form.factory')
+      ->createNamedBuilder('login', 'form',null, array('attr' => array('id' => 'login-form')))
+      ->getForm();
+
+      $content = $this->renderView(
+        '@HamzaBundle/Default/index.html.twig',array('error' => 'Not authenticated!', 'login' => $form1->createView())
+      );
+      return new Response($content);
+
+    }
+
+
+
+
+}
+
+
 
 
 
