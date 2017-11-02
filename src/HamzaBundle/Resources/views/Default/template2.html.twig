@@ -1,4 +1,6 @@
 {% if users is defined %}
+{% if generate is not defined %}
+
 <div class="left-input">
   <form class="well">
         <label>First Name : </label>
@@ -52,10 +54,11 @@
           </div>
 
 {% endif %}
+{% endif %}
 
 
 
-<div class="template2" style=" background-image: url('     {{ asset('./img/template2.png') }}     ') ">
+<div class="template2" style=" background-image: url('     {{ asset('./img/template2.png', absolute=true) }}     ') ">
 <div class="left-con">
 
 

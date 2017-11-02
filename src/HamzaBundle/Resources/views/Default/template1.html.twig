@@ -1,4 +1,5 @@
 {% if users is defined %}
+{% if generate is not defined %}
 <div class="left-input">
   <form class="well">
         <label>First Name : </label>
@@ -41,7 +42,6 @@
         <div class="form-group">   <input id="signature" placeholder="Hamza H." type="text" value="{{ users[0].signature }}"></div>
 
 
-
         <div class="form-group">       <a href="{{ path('logout') }}" class="btn btn-info btn-lg">
               <span class="glyphicon glyphicon-log-out"></span> Log out
             </a></div>
@@ -53,8 +53,9 @@
 </div>
 
 {% endif %}
+{% endif %}
 
-<div class="template1" style=" background-image: url('     {{ asset('./img/template1s.png') }}     ')" >
+<div class="template1" style=" background-image: url('     {{ asset('./img/template1s.png', absolute=true) }}     ')" >
   <div class=top>
   <div class="name">
     <h1>{{ users[0].fname }} {{ users[0].lname }}</h1>

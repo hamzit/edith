@@ -38,6 +38,8 @@ twig:
     strict_variables: '%kernel.debug%'
     paths:
         "%kernel.root_dir%/../src/HamzaBundle/Resources/views/": HamzaBundle
+    globals:
+        pathToWeb: "%kernel.root_dir%/../web"
 
 
 # Doctrine Configuration

@@ -1,0 +1,117 @@
+<html>
+
+<header>
+
+<script src="{{ asset('./js/jquery-3.2.1.js', absolute=true) }}"></script>
+<script src="{{ asset('./js/script.js', absolute=true) }}"></script>
+<!-- Bootstrap -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+<link rel="stylesheet" href=" {{ asset('./css/stylehome-pdf.css', absolute=true) }} "/>
+
+
+
+  <script>
+
+    $(document).ready(function(){
+      fname = {{ users[1].fname | json_encode() | raw }};
+      lname = {{ users[1].lname | json_encode() | raw }};
+      // $(".letterone h1").html( $('#fname').val().charAt(0).toUpperCase()); //both
+      $(".letterone h1").html(fname.charAt(0).toUpperCase()); //both
+      // $(".lettertwo h1").html($('#lname').val().charAt(0).toUpperCase()); //both
+      $(".lettertwo h1").html(lname.charAt(0).toUpperCase()); //both
+
+    });
+
+  </script>
+
+
+</header>
+
+
+<body>
+
+
+
+
+  <div class="template2" style=" background-image: url('     {{ asset('./img/template2.png', absolute=true) }}     ');  ">
+  <div class="left-con" style="">
+
+
+    <div class="letterone">
+      <h1>  </h1>
+    </div>
+    <div class="lettertwo">
+      <h1>  </h1>
+    </div>
+
+    <div class="name">
+      <h2>{{ users[1].fname}} {{ users[1].lname }}  </h2>
+    </div>
+
+    <div class="status">
+      <h5>{{ users[1].status }}</h5>
+    </div>
+
+    <div class="adress">
+      <h4> | </h4>
+      <h5>{{ users[1].address }}</h5>
+      <h4> | </h4>
+    </div>
+    <div class="tel">
+      <h4> | </h4>
+      <h5>{{ users[1].tel }} </h5>
+      <h4> | </h4>
+    </div>
+    <div class="email">
+      <h4> | </h4>
+      <h5>{{ users[1].email }}</h5>
+      <h4> | </h4>
+    </div>
+
+  </div>
+  <div class="right-con">
+    <div class="towhom">
+      <h3> {{ users[1].towhom }} </h3>
+    </div>
+    <div class="content">
+
+      <div class="dear">
+        <h4>{{ users[1].dear }}</h4>
+      </div>
+      <div class="paragraph1">
+        <h5>{{ users[1].TextOne }}</h5>
+      </div>
+      <div class="paragraph2">
+        <h5>{{ users[1].TextTwo }}</h5>
+      </div>
+      <div class="paragraph3">
+        <h5>{{ users[1].TextThree }}</h5>
+      </div>
+      <div class="signature">
+        <div class="first">
+          <h4>{{ users[1].greetings }}</h4>
+        </div>
+        <div class="second">
+          <h4>{{ users[1].signature }}</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+</body>
+
+</html>

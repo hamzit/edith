@@ -21,13 +21,6 @@ textarea {
     resize: none;
 }
 
-
-body .template1 , body .template2 {
-/*display: flex;*/
-	margin-left: 50px;
-}
-
-
 /********************************* TEMPLATE 2 ***************************************/
 .template2 {
 	font-family: Open Sans;
@@ -42,7 +35,7 @@ body .template2 {
 body .template2 {
 		/*margin-left: 25px;*/
     background-image: url("template2.png");
-    height:296mm;
+    height:300mm;
     width:212mm;    /* to centre page on screen*/
     /*margin-left: auto;
     margin-right: auto;*/
@@ -57,7 +50,7 @@ body .template2 {
 body .template2 .left-con {
 	/*background-color: blue;*/
 	width: 279px;
-	height: 775px;
+	/*height: 775px;*/
 	float: left;
 	/*background-color: red;*/
 }
@@ -73,6 +66,13 @@ float: right;
 
 
 
+
+
+
+
+
+
+
 body .template2 .left-con  h4, body .template2 .left-con  h5 {
 display: inline-block;
 }
@@ -80,7 +80,7 @@ display: inline-block;
 body .template2 .left-con  .letterone {
 	color: white;
 	margin-top: 135px;
-	margin-left: 110px;
+	margin-left: 105px;
 	height: 40px;
 	width: 30px;
 	/*background-color: red;*/
@@ -104,7 +104,7 @@ text-align: center;
 
 
 body .template2 .left-con  .adress {
-margin-top: 130px;
+margin-top: 125px;
 width: 279px;
 height: 30px;
 overflow: hidden;
@@ -112,7 +112,7 @@ overflow: hidden;
 }
 
 body .template2 .left-con  .tel  {
-margin-top: 72px;
+margin-top: 75px;
 width: 279px;
 height: 30px;
 overflow: hidden;
@@ -211,12 +211,6 @@ body .preview  {
 	text-align: center;
 }
 
-body .preview #myImg0, body .preview #myImg1  {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
 body .preview img  {
 margin-top: 30px;
 }
@@ -234,9 +228,6 @@ body .preview span {
 	margin-top: 5px;
 }
 
-body  .generate {
-	margin-top: 50px;
-}
 
 
 

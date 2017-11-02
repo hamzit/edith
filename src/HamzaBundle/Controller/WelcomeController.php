@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use HamzaBundle\Entity\Templates;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
 class WelcomeController extends Controller
 {
@@ -211,9 +212,6 @@ public function updateAction(Request $request){
 
 
 //Generate pdf
-
-
-  // display main
   public function pdfAction(Request $request){
 
     $session = $request->getSession();
@@ -230,30 +228,41 @@ public function updateAction(Request $request){
       //  $myresponse = "Template SET : " . $request->request->get('template');
 
       //  RETURN CHOSEN TEMPLATE
-      $templatenum = $request->request->get('template');
+      $templatenum = $request->getSession()->get('template');
       if ($templatenum == 1){
 
-        $template =  $this->render('@HamzaBundle/Default/template1.html.twig',
+        $template =  $this->renderView('@HamzaBundle/Default/pdf-template1.html.twig',
         array('users' => $alltemplates));
 
-        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+        $filename = sprintf('Lettre-%s.pdf', date('Y-m-d'));
 
 
 
       } else {
 
-        $template =  $this->render('@HamzaBundle/Default/template1.html.twig',
+        $template =  $this->renderView('@HamzaBundle/Default/pdf-template2.html.twig',
         array('users' => $alltemplates));
 
-        $filename = sprintf('test-%s.pdf', date('Y-m-d'));
+        $filename = sprintf('test-%s.pdf', date("Y-m-d"));
+        // $filename = sprintf('test-%s.pdf', date("Y-m-d h:i:sa"));
 
       }
 
+      $options = [
+          'margin-top'    => 0,
+          'margin-right'  => 0,
+          'margin-bottom' => 0,
+          'margin-left'   => 0,
+      ];
+      //
+      // return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($template,$options), 200,
+      //                     ['Content-Type'=> 'application/pdf',
+      //                      'Content-Disposition' => sprintf('attachment; filename="%s"', $filename), ]  );
+      //
+      return new PdfResponse($this->get('knp_snappy.pdf')->getOutputFromHtml($template,$options), $filename  );
 
-      return new Response($this->get('knp_snappy.pdf')->getOutputFromHtml($template), 200,
-                          ['Content-Type'=> 'application/pdf',
-                           'Content-Disposition' => sprintf('attachment; filename="%s"', $filename),]
-      );
+
+      // return new Response($template);
 
     } else {
       $form1 = $this->get('form.factory')
