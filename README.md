@@ -9,6 +9,8 @@ Features & Technologies used?
 
   * Cover letters informations are saved online for later modifications
 
+  * Export Cover Letter to PDF
+
   * A4 paper format
 
   * Preview Letters
